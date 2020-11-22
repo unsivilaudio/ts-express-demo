@@ -15,6 +15,7 @@
   \***************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -28,6 +29,7 @@ eval("/*!\n * accepts\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 2015 D
   \*****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -41,6 +43,10 @@ eval("\n\n/**\n * Expose `arrayFlatten`.\n */\nmodule.exports = arrayFlatten\n\n
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 37:10-24 */
+/*! CommonJS bailout: exports is used directly at 37:0-7 */
+/*! CommonJS bailout: exports.urlencoded(...) prevents optimization as exports is passed as call context at 105:20-38 */
+/*! CommonJS bailout: exports.json(...) prevents optimization as exports is passed as call context at 106:14-26 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -54,6 +60,7 @@ eval("/*!\n * body-parser\n * Copyright(c) 2014-2015 Douglas Christopher Wilson\
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 24:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -67,6 +74,7 @@ eval("/*!\n * body-parser\n * Copyright(c) 2014-2015 Douglas Christopher Wilson\
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 26:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -80,6 +88,7 @@ eval("/*!\n * body-parser\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 20
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -93,6 +102,7 @@ eval("/*!\n * body-parser\n * Copyright(c) 2014-2015 Douglas Christopher Wilson\
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -106,6 +116,7 @@ eval("/*!\n * body-parser\n * Copyright(c) 2014-2015 Douglas Christopher Wilson\
   \**********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 27:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -119,6 +130,7 @@ eval("/*!\n * body-parser\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 20
   \*************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -132,6 +144,7 @@ eval("/*!\n * bytes\n * Copyright(c) 2012-2014 TJ Holowaychuk\n * Copyright(c) 2
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -164,6 +177,7 @@ eval("/*!\n * content-type\n * Copyright(c) 2015 Douglas Christopher Wilson\n * 
 /*! export unsign [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_exports__, __webpack_require__ */
+/*! CommonJS bailout: exports.sign(...) prevents optimization as exports is passed as call context at 40:12-24 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 eval("/**\n * Module dependencies.\n */\n\nvar crypto = __webpack_require__(/*! crypto */ \"crypto\");\n\n/**\n * Sign the given `val` with `secret`.\n *\n * @param {String} val\n * @param {String} secret\n * @return {String}\n * @api private\n */\n\nexports.sign = function(val, secret){\n  if ('string' != typeof val) throw new TypeError(\"Cookie value must be provided as a string.\");\n  if ('string' != typeof secret) throw new TypeError(\"Secret string must be provided.\");\n  return val + '.' + crypto\n    .createHmac('sha256', secret)\n    .update(val)\n    .digest('base64')\n    .replace(/\\=+$/, '');\n};\n\n/**\n * Unsign and decode the given `val` with `secret`,\n * returning `false` if the signature is invalid.\n *\n * @param {String} val\n * @param {String} secret\n * @return {String|Boolean}\n * @api private\n */\n\nexports.unsign = function(val, secret){\n  if ('string' != typeof val) throw new TypeError(\"Signed cookie string must be provided.\");\n  if ('string' != typeof secret) throw new TypeError(\"Secret string must be provided.\");\n  var str = val.slice(0, val.lastIndexOf('.'))\n    , mac = exports.sign(str, secret);\n  \n  return sha1(mac) == sha1(val) ? str : false;\n};\n\n/**\n * Private\n */\n\nfunction sha1(str){\n  return crypto.createHash('sha1').update(str).digest('hex');\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/cookie-signature/index.js?");
@@ -192,6 +206,9 @@ eval("/*!\n * cookie\n * Copyright(c) 2012-2014 Roman Shtylman\n * Copyright(c) 
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: exports is used directly at 7:0-7 */
+/*! CommonJS bailout: exports.humanize(...) prevents optimization as exports is passed as call context at 86:12-28 */
+/*! CommonJS bailout: exports.enable(...) prevents optimization as exports is passed as call context at 168:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 eval("/**\n * This is the web browser implementation of `debug()`.\n *\n * Expose `debug()` as the module.\n */\n\nexports = module.exports = __webpack_require__(/*! ./debug */ \"./node_modules/debug/src/debug.js\");\nexports.log = log;\nexports.formatArgs = formatArgs;\nexports.save = save;\nexports.load = load;\nexports.useColors = useColors;\nexports.storage = 'undefined' != typeof chrome\n               && 'undefined' != typeof chrome.storage\n                  ? chrome.storage.local\n                  : localstorage();\n\n/**\n * Colors.\n */\n\nexports.colors = [\n  'lightseagreen',\n  'forestgreen',\n  'goldenrod',\n  'dodgerblue',\n  'darkorchid',\n  'crimson'\n];\n\n/**\n * Currently only WebKit-based Web Inspectors, Firefox >= v31,\n * and the Firebug extension (any Firefox version) are known\n * to support \"%c\" CSS customizations.\n *\n * TODO: add a `localStorage` variable to explicitly enable/disable colors\n */\n\nfunction useColors() {\n  // NB: In an Electron preload script, document will be defined but not fully\n  // initialized. Since we know we're in Chrome, we'll just detect this case\n  // explicitly\n  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {\n    return true;\n  }\n\n  // is webkit? http://stackoverflow.com/a/16459606/376773\n  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632\n  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||\n    // is firebug? http://stackoverflow.com/a/398120/376773\n    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||\n    // is firefox >= v31?\n    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages\n    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\\/(\\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||\n    // double check webkit in userAgent just in case we are in a worker\n    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\\/(\\d+)/));\n}\n\n/**\n * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.\n */\n\nexports.formatters.j = function(v) {\n  try {\n    return JSON.stringify(v);\n  } catch (err) {\n    return '[UnexpectedJSONParseError]: ' + err.message;\n  }\n};\n\n\n/**\n * Colorize log arguments if enabled.\n *\n * @api public\n */\n\nfunction formatArgs(args) {\n  var useColors = this.useColors;\n\n  args[0] = (useColors ? '%c' : '')\n    + this.namespace\n    + (useColors ? ' %c' : ' ')\n    + args[0]\n    + (useColors ? '%c ' : ' ')\n    + '+' + exports.humanize(this.diff);\n\n  if (!useColors) return;\n\n  var c = 'color: ' + this.color;\n  args.splice(1, 0, c, 'color: inherit')\n\n  // the final \"%c\" is somewhat tricky, because there could be other\n  // arguments passed either before or after the %c, so we need to\n  // figure out the correct index to insert the CSS into\n  var index = 0;\n  var lastC = 0;\n  args[0].replace(/%[a-zA-Z%]/g, function(match) {\n    if ('%%' === match) return;\n    index++;\n    if ('%c' === match) {\n      // we only are interested in the *last* %c\n      // (the user may have provided their own)\n      lastC = index;\n    }\n  });\n\n  args.splice(lastC, 0, c);\n}\n\n/**\n * Invokes `console.log()` when available.\n * No-op when `console.log` is not a \"function\".\n *\n * @api public\n */\n\nfunction log() {\n  // this hackery is required for IE8/9, where\n  // the `console.log` function doesn't have 'apply'\n  return 'object' === typeof console\n    && console.log\n    && Function.prototype.apply.call(console.log, console, arguments);\n}\n\n/**\n * Save `namespaces`.\n *\n * @param {String} namespaces\n * @api private\n */\n\nfunction save(namespaces) {\n  try {\n    if (null == namespaces) {\n      exports.storage.removeItem('debug');\n    } else {\n      exports.storage.debug = namespaces;\n    }\n  } catch(e) {}\n}\n\n/**\n * Load `namespaces`.\n *\n * @return {String} returns the previously persisted debug modes\n * @api private\n */\n\nfunction load() {\n  var r;\n  try {\n    r = exports.storage.debug;\n  } catch(e) {}\n\n  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG\n  if (!r && typeof process !== 'undefined' && 'env' in process) {\n    r = process.env.DEBUG;\n  }\n\n  return r;\n}\n\n/**\n * Enable namespaces listed in `localStorage.debug` initially.\n */\n\nexports.enable(load());\n\n/**\n * Localstorage attempts to return the localstorage.\n *\n * This is necessary because safari throws\n * when a user disables cookies/localstorage\n * and you attempt to access it.\n *\n * @return {LocalStorage}\n * @api private\n */\n\nfunction localstorage() {\n  try {\n    return window.localStorage;\n  } catch (e) {}\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/debug/src/browser.js?");
@@ -204,6 +221,14 @@ eval("/**\n * This is the web browser implementation of `debug()`.\n *\n * Expos
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 9:10-24 */
+/*! CommonJS bailout: exports is used directly at 9:0-7 */
+/*! CommonJS bailout: exports.coerce(...) prevents optimization as exports is passed as call context at 85:14-28 */
+/*! CommonJS bailout: exports.enabled(...) prevents optimization as exports is passed as call context at 118:18-33 */
+/*! CommonJS bailout: exports.useColors(...) prevents optimization as exports is passed as call context at 119:20-37 */
+/*! CommonJS bailout: exports.init(...) prevents optimization as exports is passed as call context at 124:4-16 */
+/*! CommonJS bailout: exports.save(...) prevents optimization as exports is passed as call context at 139:2-14 */
+/*! CommonJS bailout: exports.enable(...) prevents optimization as exports is passed as call context at 165:2-16 */
 /***/ ((module, exports, __webpack_require__) => {
 
 eval("\n/**\n * This is the common logic for both the Node.js and web browser\n * implementations of `debug()`.\n *\n * Expose `debug()` as the module.\n */\n\nexports = module.exports = createDebug.debug = createDebug['default'] = createDebug;\nexports.coerce = coerce;\nexports.disable = disable;\nexports.enable = enable;\nexports.enabled = enabled;\nexports.humanize = __webpack_require__(/*! ms */ \"./node_modules/ms/index.js\");\n\n/**\n * The currently active debug mode names, and names to skip.\n */\n\nexports.names = [];\nexports.skips = [];\n\n/**\n * Map of special \"%n\" handling functions, for the debug \"format\" argument.\n *\n * Valid key names are a single, lower or upper-case letter, i.e. \"n\" and \"N\".\n */\n\nexports.formatters = {};\n\n/**\n * Previous log timestamp.\n */\n\nvar prevTime;\n\n/**\n * Select a color.\n * @param {String} namespace\n * @return {Number}\n * @api private\n */\n\nfunction selectColor(namespace) {\n  var hash = 0, i;\n\n  for (i in namespace) {\n    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);\n    hash |= 0; // Convert to 32bit integer\n  }\n\n  return exports.colors[Math.abs(hash) % exports.colors.length];\n}\n\n/**\n * Create a debugger with the given `namespace`.\n *\n * @param {String} namespace\n * @return {Function}\n * @api public\n */\n\nfunction createDebug(namespace) {\n\n  function debug() {\n    // disabled?\n    if (!debug.enabled) return;\n\n    var self = debug;\n\n    // set `diff` timestamp\n    var curr = +new Date();\n    var ms = curr - (prevTime || curr);\n    self.diff = ms;\n    self.prev = prevTime;\n    self.curr = curr;\n    prevTime = curr;\n\n    // turn the `arguments` into a proper Array\n    var args = new Array(arguments.length);\n    for (var i = 0; i < args.length; i++) {\n      args[i] = arguments[i];\n    }\n\n    args[0] = exports.coerce(args[0]);\n\n    if ('string' !== typeof args[0]) {\n      // anything else let's inspect with %O\n      args.unshift('%O');\n    }\n\n    // apply any `formatters` transformations\n    var index = 0;\n    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {\n      // if we encounter an escaped % then don't increase the array index\n      if (match === '%%') return match;\n      index++;\n      var formatter = exports.formatters[format];\n      if ('function' === typeof formatter) {\n        var val = args[index];\n        match = formatter.call(self, val);\n\n        // now we need to remove `args[index]` since it's inlined in the `format`\n        args.splice(index, 1);\n        index--;\n      }\n      return match;\n    });\n\n    // apply env-specific formatting (colors, etc.)\n    exports.formatArgs.call(self, args);\n\n    var logFn = debug.log || exports.log || console.log.bind(console);\n    logFn.apply(self, args);\n  }\n\n  debug.namespace = namespace;\n  debug.enabled = exports.enabled(namespace);\n  debug.useColors = exports.useColors();\n  debug.color = selectColor(namespace);\n\n  // env-specific initialization logic for debug instances\n  if ('function' === typeof exports.init) {\n    exports.init(debug);\n  }\n\n  return debug;\n}\n\n/**\n * Enables a debug mode by namespaces. This can include modes\n * separated by a colon and wildcards.\n *\n * @param {String} namespaces\n * @api public\n */\n\nfunction enable(namespaces) {\n  exports.save(namespaces);\n\n  exports.names = [];\n  exports.skips = [];\n\n  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\\s,]+/);\n  var len = split.length;\n\n  for (var i = 0; i < len; i++) {\n    if (!split[i]) continue; // ignore empty strings\n    namespaces = split[i].replace(/\\*/g, '.*?');\n    if (namespaces[0] === '-') {\n      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));\n    } else {\n      exports.names.push(new RegExp('^' + namespaces + '$'));\n    }\n  }\n}\n\n/**\n * Disable debug output.\n *\n * @api public\n */\n\nfunction disable() {\n  exports.enable('');\n}\n\n/**\n * Returns true if the given mode name is enabled, false otherwise.\n *\n * @param {String} name\n * @return {Boolean}\n * @api public\n */\n\nfunction enabled(name) {\n  var i, len;\n  for (i = 0, len = exports.skips.length; i < len; i++) {\n    if (exports.skips[i].test(name)) {\n      return false;\n    }\n  }\n  for (i = 0, len = exports.names.length; i < len; i++) {\n    if (exports.names[i].test(name)) {\n      return true;\n    }\n  }\n  return false;\n}\n\n/**\n * Coerce `val`.\n *\n * @param {Mixed} val\n * @return {Mixed}\n * @api private\n */\n\nfunction coerce(val) {\n  if (val instanceof Error) return val.stack || val.message;\n  return val;\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/debug/src/debug.js?");
@@ -229,6 +254,9 @@ eval("/**\n * Detect Electron renderer process, which is node, but we should\n *
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module, __webpack_require__ */
+/*! CommonJS bailout: exports is used directly at 14:0-7 */
+/*! CommonJS bailout: exports.humanize(...) prevents optimization as exports is passed as call context at 117:38-54 */
+/*! CommonJS bailout: exports.enable(...) prevents optimization as exports is passed as call context at 248:0-14 */
 /***/ ((module, exports, __webpack_require__) => {
 
 eval("/**\n * Module dependencies.\n */\n\nvar tty = __webpack_require__(/*! tty */ \"tty\");\nvar util = __webpack_require__(/*! util */ \"util\");\n\n/**\n * This is the Node.js implementation of `debug()`.\n *\n * Expose `debug()` as the module.\n */\n\nexports = module.exports = __webpack_require__(/*! ./debug */ \"./node_modules/debug/src/debug.js\");\nexports.init = init;\nexports.log = log;\nexports.formatArgs = formatArgs;\nexports.save = save;\nexports.load = load;\nexports.useColors = useColors;\n\n/**\n * Colors.\n */\n\nexports.colors = [6, 2, 3, 4, 5, 1];\n\n/**\n * Build up the default `inspectOpts` object from the environment variables.\n *\n *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js\n */\n\nexports.inspectOpts = Object.keys(process.env).filter(function (key) {\n  return /^debug_/i.test(key);\n}).reduce(function (obj, key) {\n  // camel-case\n  var prop = key\n    .substring(6)\n    .toLowerCase()\n    .replace(/_([a-z])/g, function (_, k) { return k.toUpperCase() });\n\n  // coerce string value into JS value\n  var val = process.env[key];\n  if (/^(yes|on|true|enabled)$/i.test(val)) val = true;\n  else if (/^(no|off|false|disabled)$/i.test(val)) val = false;\n  else if (val === 'null') val = null;\n  else val = Number(val);\n\n  obj[prop] = val;\n  return obj;\n}, {});\n\n/**\n * The file descriptor to write the `debug()` calls to.\n * Set the `DEBUG_FD` env variable to override with another value. i.e.:\n *\n *   $ DEBUG_FD=3 node script.js 3>debug.log\n */\n\nvar fd = parseInt(process.env.DEBUG_FD, 10) || 2;\n\nif (1 !== fd && 2 !== fd) {\n  util.deprecate(function(){}, 'except for stderr(2) and stdout(1), any other usage of DEBUG_FD is deprecated. Override debug.log if you want to use a different log function (https://git.io/debug_fd)')()\n}\n\nvar stream = 1 === fd ? process.stdout :\n             2 === fd ? process.stderr :\n             createWritableStdioStream(fd);\n\n/**\n * Is stdout a TTY? Colored output is enabled when `true`.\n */\n\nfunction useColors() {\n  return 'colors' in exports.inspectOpts\n    ? Boolean(exports.inspectOpts.colors)\n    : tty.isatty(fd);\n}\n\n/**\n * Map %o to `util.inspect()`, all on a single line.\n */\n\nexports.formatters.o = function(v) {\n  this.inspectOpts.colors = this.useColors;\n  return util.inspect(v, this.inspectOpts)\n    .split('\\n').map(function(str) {\n      return str.trim()\n    }).join(' ');\n};\n\n/**\n * Map %o to `util.inspect()`, allowing multiple lines if needed.\n */\n\nexports.formatters.O = function(v) {\n  this.inspectOpts.colors = this.useColors;\n  return util.inspect(v, this.inspectOpts);\n};\n\n/**\n * Adds ANSI color escape codes if enabled.\n *\n * @api public\n */\n\nfunction formatArgs(args) {\n  var name = this.namespace;\n  var useColors = this.useColors;\n\n  if (useColors) {\n    var c = this.color;\n    var prefix = '  \\u001b[3' + c + ';1m' + name + ' ' + '\\u001b[0m';\n\n    args[0] = prefix + args[0].split('\\n').join('\\n' + prefix);\n    args.push('\\u001b[3' + c + 'm+' + exports.humanize(this.diff) + '\\u001b[0m');\n  } else {\n    args[0] = new Date().toUTCString()\n      + ' ' + name + ' ' + args[0];\n  }\n}\n\n/**\n * Invokes `util.format()` with the specified arguments and writes to `stream`.\n */\n\nfunction log() {\n  return stream.write(util.format.apply(util, arguments) + '\\n');\n}\n\n/**\n * Save `namespaces`.\n *\n * @param {String} namespaces\n * @api private\n */\n\nfunction save(namespaces) {\n  if (null == namespaces) {\n    // If you set a process.env field to null or undefined, it gets cast to the\n    // string 'null' or 'undefined'. Just delete instead.\n    delete process.env.DEBUG;\n  } else {\n    process.env.DEBUG = namespaces;\n  }\n}\n\n/**\n * Load `namespaces`.\n *\n * @return {String} returns the previously persisted debug modes\n * @api private\n */\n\nfunction load() {\n  return process.env.DEBUG;\n}\n\n/**\n * Copied from `node/src/node.js`.\n *\n * XXX: It's lame that node doesn't expose this API out-of-the-box. It also\n * relies on the undocumented `tty_wrap.guessHandleType()` which is also lame.\n */\n\nfunction createWritableStdioStream (fd) {\n  var stream;\n  var tty_wrap = process.binding('tty_wrap');\n\n  // Note stream._type is used for test-module-load-list.js\n\n  switch (tty_wrap.guessHandleType(fd)) {\n    case 'TTY':\n      stream = new tty.WriteStream(fd);\n      stream._type = 'tty';\n\n      // Hack to have stream not keep the event loop alive.\n      // See https://github.com/joyent/node/issues/1726\n      if (stream._handle && stream._handle.unref) {\n        stream._handle.unref();\n      }\n      break;\n\n    case 'FILE':\n      var fs = __webpack_require__(/*! fs */ \"fs\");\n      stream = new fs.SyncWriteStream(fd, { autoClose: false });\n      stream._type = 'fs';\n      break;\n\n    case 'PIPE':\n    case 'TCP':\n      var net = __webpack_require__(/*! net */ \"net\");\n      stream = new net.Socket({\n        fd: fd,\n        readable: false,\n        writable: true\n      });\n\n      // FIXME Should probably have an option in net.Socket to create a\n      // stream from an existing fd which is writable only. But for now\n      // we'll just add this hack and set the `readable` member to false.\n      // Test: ./node test/fixtures/echo.js < /etc/passwd\n      stream.readable = false;\n      stream.read = null;\n      stream._type = 'pipe';\n\n      // FIXME Hack to have stream not keep the event loop alive.\n      // See https://github.com/joyent/node/issues/1726\n      if (stream._handle && stream._handle.unref) {\n        stream._handle.unref();\n      }\n      break;\n\n    default:\n      // Probably an error on in uv_guess_handle()\n      throw new Error('Implement me. Unknown stream file type!');\n  }\n\n  // For supporting legacy API we put the FD here.\n  stream.fd = fd;\n\n  stream._isStdio = true;\n\n  return stream;\n}\n\n/**\n * Init logic for `debug` instances.\n *\n * Create a new `inspectOpts` object in case `useColors` is set\n * differently for a particular `debug` instance.\n */\n\nfunction init (debug) {\n  debug.inspectOpts = {};\n\n  var keys = Object.keys(exports.inspectOpts);\n  for (var i = 0; i < keys.length; i++) {\n    debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];\n  }\n}\n\n/**\n * Enable namespaces listed in `process.env.DEBUG` initially.\n */\n\nexports.enable(load());\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/debug/src/node.js?");
@@ -241,6 +269,7 @@ eval("/**\n * Module dependencies.\n */\n\nvar tty = __webpack_require__(/*! tty
   \************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 19:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("/*!\n * depd\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n * MIT Licensed\n */\n\n/**\n * Module dependencies.\n */\n\nvar callSiteToString = __webpack_require__(/*! ./lib/compat */ \"./node_modules/depd/lib/compat/index.js\").callSiteToString\nvar eventListenerCount = __webpack_require__(/*! ./lib/compat */ \"./node_modules/depd/lib/compat/index.js\").eventListenerCount\nvar relative = __webpack_require__(/*! path */ \"path\").relative\n\n/**\n * Module exports.\n */\n\nmodule.exports = depd\n\n/**\n * Get the path to base files on.\n */\n\nvar basePath = process.cwd()\n\n/**\n * Determine if namespace is contained in the string.\n */\n\nfunction containsNamespace (str, namespace) {\n  var vals = str.split(/[ ,]+/)\n  var ns = String(namespace).toLowerCase()\n\n  for (var i = 0; i < vals.length; i++) {\n    var val = vals[i]\n\n    // namespace contained\n    if (val && (val === '*' || val.toLowerCase() === ns)) {\n      return true\n    }\n  }\n\n  return false\n}\n\n/**\n * Convert a data descriptor to accessor descriptor.\n */\n\nfunction convertDataDescriptorToAccessor (obj, prop, message) {\n  var descriptor = Object.getOwnPropertyDescriptor(obj, prop)\n  var value = descriptor.value\n\n  descriptor.get = function getter () { return value }\n\n  if (descriptor.writable) {\n    descriptor.set = function setter (val) { return (value = val) }\n  }\n\n  delete descriptor.value\n  delete descriptor.writable\n\n  Object.defineProperty(obj, prop, descriptor)\n\n  return descriptor\n}\n\n/**\n * Create arguments string to keep arity.\n */\n\nfunction createArgumentsString (arity) {\n  var str = ''\n\n  for (var i = 0; i < arity; i++) {\n    str += ', arg' + i\n  }\n\n  return str.substr(2)\n}\n\n/**\n * Create stack string from stack.\n */\n\nfunction createStackString (stack) {\n  var str = this.name + ': ' + this.namespace\n\n  if (this.message) {\n    str += ' deprecated ' + this.message\n  }\n\n  for (var i = 0; i < stack.length; i++) {\n    str += '\\n    at ' + callSiteToString(stack[i])\n  }\n\n  return str\n}\n\n/**\n * Create deprecate for namespace in caller.\n */\n\nfunction depd (namespace) {\n  if (!namespace) {\n    throw new TypeError('argument namespace is required')\n  }\n\n  var stack = getStack()\n  var site = callSiteLocation(stack[1])\n  var file = site[0]\n\n  function deprecate (message) {\n    // call to self as log\n    log.call(deprecate, message)\n  }\n\n  deprecate._file = file\n  deprecate._ignored = isignored(namespace)\n  deprecate._namespace = namespace\n  deprecate._traced = istraced(namespace)\n  deprecate._warned = Object.create(null)\n\n  deprecate.function = wrapfunction\n  deprecate.property = wrapproperty\n\n  return deprecate\n}\n\n/**\n * Determine if namespace is ignored.\n */\n\nfunction isignored (namespace) {\n  /* istanbul ignore next: tested in a child processs */\n  if (process.noDeprecation) {\n    // --no-deprecation support\n    return true\n  }\n\n  var str = process.env.NO_DEPRECATION || ''\n\n  // namespace ignored\n  return containsNamespace(str, namespace)\n}\n\n/**\n * Determine if namespace is traced.\n */\n\nfunction istraced (namespace) {\n  /* istanbul ignore next: tested in a child processs */\n  if (process.traceDeprecation) {\n    // --trace-deprecation support\n    return true\n  }\n\n  var str = process.env.TRACE_DEPRECATION || ''\n\n  // namespace traced\n  return containsNamespace(str, namespace)\n}\n\n/**\n * Display deprecation message.\n */\n\nfunction log (message, site) {\n  var haslisteners = eventListenerCount(process, 'deprecation') !== 0\n\n  // abort early if no destination\n  if (!haslisteners && this._ignored) {\n    return\n  }\n\n  var caller\n  var callFile\n  var callSite\n  var depSite\n  var i = 0\n  var seen = false\n  var stack = getStack()\n  var file = this._file\n\n  if (site) {\n    // provided site\n    depSite = site\n    callSite = callSiteLocation(stack[1])\n    callSite.name = depSite.name\n    file = callSite[0]\n  } else {\n    // get call site\n    i = 2\n    depSite = callSiteLocation(stack[i])\n    callSite = depSite\n  }\n\n  // get caller of deprecated thing in relation to file\n  for (; i < stack.length; i++) {\n    caller = callSiteLocation(stack[i])\n    callFile = caller[0]\n\n    if (callFile === file) {\n      seen = true\n    } else if (callFile === this._file) {\n      file = this._file\n    } else if (seen) {\n      break\n    }\n  }\n\n  var key = caller\n    ? depSite.join(':') + '__' + caller.join(':')\n    : undefined\n\n  if (key !== undefined && key in this._warned) {\n    // already warned\n    return\n  }\n\n  this._warned[key] = true\n\n  // generate automatic message from call site\n  var msg = message\n  if (!msg) {\n    msg = callSite === depSite || !callSite.name\n      ? defaultMessage(depSite)\n      : defaultMessage(callSite)\n  }\n\n  // emit deprecation if listeners exist\n  if (haslisteners) {\n    var err = DeprecationError(this._namespace, msg, stack.slice(i))\n    process.emit('deprecation', err)\n    return\n  }\n\n  // format and write message\n  var format = process.stderr.isTTY\n    ? formatColor\n    : formatPlain\n  var output = format.call(this, msg, caller, stack.slice(i))\n  process.stderr.write(output + '\\n', 'utf8')\n}\n\n/**\n * Get call site location as array.\n */\n\nfunction callSiteLocation (callSite) {\n  var file = callSite.getFileName() || '<anonymous>'\n  var line = callSite.getLineNumber()\n  var colm = callSite.getColumnNumber()\n\n  if (callSite.isEval()) {\n    file = callSite.getEvalOrigin() + ', ' + file\n  }\n\n  var site = [file, line, colm]\n\n  site.callSite = callSite\n  site.name = callSite.getFunctionName()\n\n  return site\n}\n\n/**\n * Generate a default message from the site.\n */\n\nfunction defaultMessage (site) {\n  var callSite = site.callSite\n  var funcName = site.name\n\n  // make useful anonymous name\n  if (!funcName) {\n    funcName = '<anonymous@' + formatLocation(site) + '>'\n  }\n\n  var context = callSite.getThis()\n  var typeName = context && callSite.getTypeName()\n\n  // ignore useless type name\n  if (typeName === 'Object') {\n    typeName = undefined\n  }\n\n  // make useful type name\n  if (typeName === 'Function') {\n    typeName = context.name || typeName\n  }\n\n  return typeName && callSite.getMethodName()\n    ? typeName + '.' + funcName\n    : funcName\n}\n\n/**\n * Format deprecation message without color.\n */\n\nfunction formatPlain (msg, caller, stack) {\n  var timestamp = new Date().toUTCString()\n\n  var formatted = timestamp +\n    ' ' + this._namespace +\n    ' deprecated ' + msg\n\n  // add stack trace\n  if (this._traced) {\n    for (var i = 0; i < stack.length; i++) {\n      formatted += '\\n    at ' + callSiteToString(stack[i])\n    }\n\n    return formatted\n  }\n\n  if (caller) {\n    formatted += ' at ' + formatLocation(caller)\n  }\n\n  return formatted\n}\n\n/**\n * Format deprecation message with color.\n */\n\nfunction formatColor (msg, caller, stack) {\n  var formatted = '\\x1b[36;1m' + this._namespace + '\\x1b[22;39m' + // bold cyan\n    ' \\x1b[33;1mdeprecated\\x1b[22;39m' + // bold yellow\n    ' \\x1b[0m' + msg + '\\x1b[39m' // reset\n\n  // add stack trace\n  if (this._traced) {\n    for (var i = 0; i < stack.length; i++) {\n      formatted += '\\n    \\x1b[36mat ' + callSiteToString(stack[i]) + '\\x1b[39m' // cyan\n    }\n\n    return formatted\n  }\n\n  if (caller) {\n    formatted += ' \\x1b[36m' + formatLocation(caller) + '\\x1b[39m' // cyan\n  }\n\n  return formatted\n}\n\n/**\n * Format call site location.\n */\n\nfunction formatLocation (callSite) {\n  return relative(basePath, callSite[0]) +\n    ':' + callSite[1] +\n    ':' + callSite[2]\n}\n\n/**\n * Get the stack as array of call sites.\n */\n\nfunction getStack () {\n  var limit = Error.stackTraceLimit\n  var obj = {}\n  var prep = Error.prepareStackTrace\n\n  Error.prepareStackTrace = prepareObjectStackTrace\n  Error.stackTraceLimit = Math.max(10, limit)\n\n  // capture the stack\n  Error.captureStackTrace(obj)\n\n  // slice this function off the top\n  var stack = obj.stack.slice(1)\n\n  Error.prepareStackTrace = prep\n  Error.stackTraceLimit = limit\n\n  return stack\n}\n\n/**\n * Capture call site stack from v8.\n */\n\nfunction prepareObjectStackTrace (obj, stack) {\n  return stack\n}\n\n/**\n * Return a wrapped function in a deprecation message.\n */\n\nfunction wrapfunction (fn, message) {\n  if (typeof fn !== 'function') {\n    throw new TypeError('argument fn must be a function')\n  }\n\n  var args = createArgumentsString(fn.length)\n  var deprecate = this // eslint-disable-line no-unused-vars\n  var stack = getStack()\n  var site = callSiteLocation(stack[1])\n\n  site.name = fn.name\n\n   // eslint-disable-next-line no-eval\n  var deprecatedfn = eval('(function (' + args + ') {\\n' +\n    '\"use strict\"\\n' +\n    'log.call(deprecate, message, site)\\n' +\n    'return fn.apply(this, arguments)\\n' +\n    '})')\n\n  return deprecatedfn\n}\n\n/**\n * Wrap property in a deprecation message.\n */\n\nfunction wrapproperty (obj, prop, message) {\n  if (!obj || (typeof obj !== 'object' && typeof obj !== 'function')) {\n    throw new TypeError('argument obj must be object')\n  }\n\n  var descriptor = Object.getOwnPropertyDescriptor(obj, prop)\n\n  if (!descriptor) {\n    throw new TypeError('must call property on owner object')\n  }\n\n  if (!descriptor.configurable) {\n    throw new TypeError('property must be configurable')\n  }\n\n  var deprecate = this\n  var stack = getStack()\n  var site = callSiteLocation(stack[1])\n\n  // set site name\n  site.name = prop\n\n  // convert data descriptor\n  if ('value' in descriptor) {\n    descriptor = convertDataDescriptorToAccessor(obj, prop, message)\n  }\n\n  var get = descriptor.get\n  var set = descriptor.set\n\n  // wrap getter\n  if (typeof get === 'function') {\n    descriptor.get = function getter () {\n      log.call(deprecate, message, site)\n      return get.apply(this, arguments)\n    }\n  }\n\n  // wrap setter\n  if (typeof set === 'function') {\n    descriptor.set = function setter () {\n      log.call(deprecate, message, site)\n      return set.apply(this, arguments)\n    }\n  }\n\n  Object.defineProperty(obj, prop, descriptor)\n}\n\n/**\n * Create DeprecationError for deprecation\n */\n\nfunction DeprecationError (namespace, message, stack) {\n  var error = new Error()\n  var stackString\n\n  Object.defineProperty(error, 'constructor', {\n    value: DeprecationError\n  })\n\n  Object.defineProperty(error, 'message', {\n    configurable: true,\n    enumerable: false,\n    value: message,\n    writable: true\n  })\n\n  Object.defineProperty(error, 'name', {\n    enumerable: false,\n    configurable: true,\n    value: 'DeprecationError',\n    writable: true\n  })\n\n  Object.defineProperty(error, 'namespace', {\n    configurable: true,\n    enumerable: false,\n    value: namespace,\n    writable: true\n  })\n\n  Object.defineProperty(error, 'stack', {\n    configurable: true,\n    enumerable: false,\n    get: function () {\n      if (stackString !== undefined) {\n        return stackString\n      }\n\n      // prepare stack trace\n      return (stackString = createStackString.call(this, stack))\n    },\n    set: function setter (val) {\n      stackString = val\n    }\n  })\n\n  return error\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/depd/index.js?");
@@ -253,6 +282,7 @@ eval("/*!\n * depd\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n * MIT
   \***********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -266,6 +296,7 @@ eval("/*!\n * depd\n * Copyright(c) 2014 Douglas Christopher Wilson\n * MIT Lice
   \**************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -279,6 +310,8 @@ eval("/*!\n * depd\n * Copyright(c) 2015 Douglas Christopher Wilson\n * MIT Lice
   \***********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 21:13-27 */
+/*! CommonJS bailout: module.exports is used directly at 45:13-27 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -292,6 +325,7 @@ eval("/*!\n * depd\n * Copyright(c) 2014-2015 Douglas Christopher Wilson\n * MIT
   \***************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -305,6 +339,7 @@ eval("/*!\n * destroy\n * Copyright(c) 2014 Jonathan Ong\n * MIT Licensed\n */\n
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -318,6 +353,12 @@ eval("/*!\n * ee-first\n * Copyright(c) 2014 Jonathan Ong\n * MIT Licensed\n */\
   \*************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, __webpack_exports__ */
+/*! CommonJS bailout: exports.resolveInclude(...) prevents optimization as exports is passed as call context at 140:15-37 */
+/*! CommonJS bailout: exports.resolveInclude(...) prevents optimization as exports is passed as call context at 166:20-42 */
+/*! CommonJS bailout: exports.resolveInclude(...) prevents optimization as exports is passed as call context at 173:17-39 */
+/*! CommonJS bailout: exports.compile(...) prevents optimization as exports is passed as call context at 233:9-24 */
+/*! CommonJS bailout: exports.fileLoader(...) prevents optimization as exports is passed as call context at 291:9-27 */
+/*! CommonJS bailout: exports is used directly at 937:15-22 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -351,46 +392,16 @@ eval("/*\n * EJS Embedded JavaScript templates\n * Copyright 2112 Matthew Eernis
   \***************************************/
 /*! default exports */
 /*! export _from [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _id [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _inBundle [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export _integrity [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _location [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _phantomChildren [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   exports [not provided] [no usage info] */
-/*! export _requested [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export escapedName [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export fetchSpec [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export name [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export raw [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export rawSpec [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export registry [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export saveSpec [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export type [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   other exports [not provided] [no usage info] */
-/*! export _requiredBy [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export 0 [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export 1 [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   other exports [not provided] [no usage info] */
 /*! export _resolved [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _shasum [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _spec [provided] [no usage info] [missing usage info prevents renaming] */
-/*! export _where [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export author [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export email [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export name [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export url [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   other exports [not provided] [no usage info] */
 /*! export bin [provided] [no usage info] [missing usage info prevents renaming] */
 /*!   export ejs [provided] [no usage info] [missing usage info prevents renaming] */
 /*!   other exports [not provided] [no usage info] */
 /*! export bugs [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   export url [provided] [no usage info] [missing usage info prevents renaming] */
-/*!   other exports [not provided] [no usage info] */
-/*! export bundleDependencies [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export dependencies [provided] [no usage info] [missing usage info prevents renaming] */
 /*!   export jake [provided] [no usage info] [missing usage info prevents renaming] */
 /*!   other exports [not provided] [no usage info] */
-/*! export deprecated [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export description [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export devDependencies [provided] [no usage info] [missing usage info prevents renaming] */
 /*!   export browserify [provided] [no usage info] [missing usage info prevents renaming] */
@@ -428,7 +439,7 @@ eval("/*\n * EJS Embedded JavaScript templates\n * Copyright 2112 Matthew Eernis
 /***/ ((module) => {
 
 "use strict";
-eval("module.exports = JSON.parse(\"{\\\"_from\\\":\\\"ejs\\\",\\\"_id\\\":\\\"ejs@3.1.5\\\",\\\"_inBundle\\\":false,\\\"_integrity\\\":\\\"sha512-dldq3ZfFtgVTJMLjOe+/3sROTzALlL9E34V4/sDtUd/KlBSS0s6U1/+WPE1B4sj9CXHJpL1M6rhNJnc9Wbal9w==\\\",\\\"_location\\\":\\\"/ejs\\\",\\\"_phantomChildren\\\":{},\\\"_requested\\\":{\\\"type\\\":\\\"tag\\\",\\\"registry\\\":true,\\\"raw\\\":\\\"ejs\\\",\\\"name\\\":\\\"ejs\\\",\\\"escapedName\\\":\\\"ejs\\\",\\\"rawSpec\\\":\\\"\\\",\\\"saveSpec\\\":null,\\\"fetchSpec\\\":\\\"latest\\\"},\\\"_requiredBy\\\":[\\\"#USER\\\",\\\"/\\\"],\\\"_resolved\\\":\\\"https://registry.npmjs.org/ejs/-/ejs-3.1.5.tgz\\\",\\\"_shasum\\\":\\\"aed723844dc20acb4b170cd9ab1017e476a0d93b\\\",\\\"_spec\\\":\\\"ejs\\\",\\\"_where\\\":\\\"C:\\\\\\\\Users\\\\\\\\Trinity\\\\\\\\Udemy\\\\\\\\TestDev\\\\\\\\ts-express-demo\\\",\\\"author\\\":{\\\"name\\\":\\\"Matthew Eernisse\\\",\\\"email\\\":\\\"mde@fleegix.org\\\",\\\"url\\\":\\\"http://fleegix.org\\\"},\\\"bin\\\":{\\\"ejs\\\":\\\"bin/cli.js\\\"},\\\"bugs\\\":{\\\"url\\\":\\\"https://github.com/mde/ejs/issues\\\"},\\\"bundleDependencies\\\":false,\\\"dependencies\\\":{\\\"jake\\\":\\\"^10.6.1\\\"},\\\"deprecated\\\":false,\\\"description\\\":\\\"Embedded JavaScript templates\\\",\\\"devDependencies\\\":{\\\"browserify\\\":\\\"^16.5.1\\\",\\\"eslint\\\":\\\"^6.8.0\\\",\\\"git-directory-deploy\\\":\\\"^1.5.1\\\",\\\"jsdoc\\\":\\\"^3.6.4\\\",\\\"lru-cache\\\":\\\"^4.0.1\\\",\\\"mocha\\\":\\\"^7.1.1\\\",\\\"uglify-js\\\":\\\"^3.3.16\\\"},\\\"engines\\\":{\\\"node\\\":\\\">=0.10.0\\\"},\\\"homepage\\\":\\\"https://github.com/mde/ejs\\\",\\\"jsdelivr\\\":\\\"ejs.min.js\\\",\\\"keywords\\\":[\\\"template\\\",\\\"engine\\\",\\\"ejs\\\"],\\\"license\\\":\\\"Apache-2.0\\\",\\\"main\\\":\\\"./lib/ejs.js\\\",\\\"name\\\":\\\"ejs\\\",\\\"repository\\\":{\\\"type\\\":\\\"git\\\",\\\"url\\\":\\\"git://github.com/mde/ejs.git\\\"},\\\"scripts\\\":{\\\"test\\\":\\\"mocha\\\"},\\\"unpkg\\\":\\\"ejs.min.js\\\",\\\"version\\\":\\\"3.1.5\\\"}\");\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/ejs/package.json?");
+eval("module.exports = JSON.parse(\"{\\\"name\\\":\\\"ejs\\\",\\\"description\\\":\\\"Embedded JavaScript templates\\\",\\\"keywords\\\":[\\\"template\\\",\\\"engine\\\",\\\"ejs\\\"],\\\"version\\\":\\\"3.1.5\\\",\\\"author\\\":\\\"Matthew Eernisse <mde@fleegix.org> (http://fleegix.org)\\\",\\\"license\\\":\\\"Apache-2.0\\\",\\\"bin\\\":{\\\"ejs\\\":\\\"./bin/cli.js\\\"},\\\"main\\\":\\\"./lib/ejs.js\\\",\\\"jsdelivr\\\":\\\"ejs.min.js\\\",\\\"unpkg\\\":\\\"ejs.min.js\\\",\\\"repository\\\":{\\\"type\\\":\\\"git\\\",\\\"url\\\":\\\"git://github.com/mde/ejs.git\\\"},\\\"bugs\\\":\\\"https://github.com/mde/ejs/issues\\\",\\\"homepage\\\":\\\"https://github.com/mde/ejs\\\",\\\"dependencies\\\":{\\\"jake\\\":\\\"^10.6.1\\\"},\\\"devDependencies\\\":{\\\"browserify\\\":\\\"^16.5.1\\\",\\\"eslint\\\":\\\"^6.8.0\\\",\\\"git-directory-deploy\\\":\\\"^1.5.1\\\",\\\"jsdoc\\\":\\\"^3.6.4\\\",\\\"lru-cache\\\":\\\"^4.0.1\\\",\\\"mocha\\\":\\\"^7.1.1\\\",\\\"uglify-js\\\":\\\"^3.3.16\\\"},\\\"engines\\\":{\\\"node\\\":\\\">=0.10.0\\\"},\\\"scripts\\\":{\\\"test\\\":\\\"mocha\\\"},\\\"_resolved\\\":\\\"https://registry.npmjs.org/ejs/-/ejs-3.1.5.tgz\\\",\\\"_integrity\\\":\\\"sha512-dldq3ZfFtgVTJMLjOe+/3sROTzALlL9E34V4/sDtUd/KlBSS0s6U1/+WPE1B4sj9CXHJpL1M6rhNJnc9Wbal9w==\\\",\\\"_from\\\":\\\"ejs@3.1.5\\\"}\");\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/ejs/package.json?");
 
 /***/ }),
 
@@ -438,6 +449,7 @@ eval("module.exports = JSON.parse(\"{\\\"_from\\\":\\\"ejs\\\",\\\"_id\\\":\\\"e
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -451,6 +463,7 @@ eval("/*!\n * encodeurl\n * Copyright(c) 2016 Douglas Christopher Wilson\n * MIT
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -464,6 +477,7 @@ eval("/*!\n * escape-html\n * Copyright(c) 2012-2013 TJ Holowaychuk\n * Copyrigh
   \************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -491,6 +505,8 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, module */
+/*! CommonJS bailout: module.exports is used directly at 38:20-34 */
+/*! CommonJS bailout: exports is used directly at 38:10-17 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -504,6 +520,9 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \*********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, __webpack_exports__, module */
+/*! CommonJS bailout: module.exports is used directly at 28:10-24 */
+/*! CommonJS bailout: exports is used directly at 28:0-7 */
+/*! CommonJS bailout: exports is used directly at 110:24-31 */
 /***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
@@ -532,6 +551,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 25:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -545,6 +565,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \*********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 38:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -558,6 +579,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 49:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -571,6 +593,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 43:12-26 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -584,6 +607,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 31:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -597,6 +621,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 34:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -622,6 +647,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
 /*! export wetag [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__ */
+/*! CommonJS bailout: exports.normalizeType(...) prevents optimization as exports is passed as call context at 99:13-34 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -635,6 +661,7 @@ eval("/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c)
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 36:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -661,6 +688,7 @@ eval("function webpackEmptyContext(req) {\n\tvar e = new Error(\"Cannot find mod
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 65:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -674,6 +702,7 @@ eval("/*!\n * finalhandler\n * Copyright(c) 2014-2017 Douglas Christopher Wilson
   \*****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -687,6 +716,7 @@ eval("/*!\n * forwarded\n * Copyright(c) 2014-2017 Douglas Christopher Wilson\n 
   \*************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -700,6 +730,8 @@ eval("/*!\n * fresh\n * Copyright(c) 2012 TJ Holowaychuk\n * Copyright(c) 2016-2
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 26:0-14 */
+/*! CommonJS bailout: module.exports is used directly at 30:27-41 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -728,6 +760,7 @@ eval("\nvar Buffer = __webpack_require__(/*! safer-buffer */ \"./node_modules/sa
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -741,6 +774,7 @@ eval("\n\n// Description of supported double byte encodings and aliases.\n// Tab
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, __webpack_require__ */
+/*! CommonJS bailout: exports is used directly at 21:12-19 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -754,6 +788,7 @@ eval("\n\n// Update this array if you add/rename/remove files in this directory.
   \*******************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -782,6 +817,7 @@ eval("\nvar Buffer = __webpack_require__(/*! safer-buffer */ \"./node_modules/sa
   \******************************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 4:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -795,6 +831,7 @@ eval("\n\n// Generated data for sbcs codec. Don't edit manually. Regenerate usin
   \********************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -9225,6 +9262,7 @@ eval("\n\nvar BOMChar = '\\uFEFF';\n\nexports.PrependBOM = PrependBOMWrapper\nfu
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -9238,6 +9276,7 @@ eval("\nvar Buffer = __webpack_require__(/*! buffer */ \"buffer\").Buffer;\n// N
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 8:12-26 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -9251,6 +9290,7 @@ eval("\n\n// Some environments don't have global Buffer (e.g. React Native).\n//
   \************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 8:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -9264,6 +9304,7 @@ eval("\n\nvar Buffer = __webpack_require__(/*! buffer */ \"buffer\").Buffer,\n  
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 4:2-16 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("try {\n  var util = __webpack_require__(/*! util */ \"util\");\n  if (typeof util.inherits !== 'function') throw '';\n  module.exports = util.inherits;\n} catch (e) {\n  module.exports = __webpack_require__(/*! ./inherits_browser.js */ \"./node_modules/inherits/inherits_browser.js\");\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/inherits/inherits.js?");
@@ -9276,6 +9317,8 @@ eval("try {\n  var util = __webpack_require__(/*! util */ \"util\");\n  if (type
   \***************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 3:2-16 */
+/*! CommonJS bailout: module.exports is used directly at 16:2-16 */
 /***/ ((module) => {
 
 eval("if (typeof Object.create === 'function') {\n  // implementation from standard node.js 'util' module\n  module.exports = function inherits(ctor, superCtor) {\n    ctor.super_ = superCtor\n    ctor.prototype = Object.create(superCtor.prototype, {\n      constructor: {\n        value: ctor,\n        enumerable: false,\n        writable: true,\n        configurable: true\n      }\n    });\n  };\n} else {\n  // old school shim for old browsers\n  module.exports = function inherits(ctor, superCtor) {\n    ctor.super_ = superCtor\n    var TempCtor = function () {}\n    TempCtor.prototype = superCtor.prototype\n    ctor.prototype = new TempCtor()\n    ctor.prototype.constructor = ctor\n  }\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/inherits/inherits_browser.js?");
@@ -9288,6 +9331,9 @@ eval("if (typeof Object.create === 'function') {\n  // implementation from stand
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.nmd, top-level-this-exports, __webpack_require__.* */
+/*! CommonJS bailout: this is used directly at 673:8-12 */
+/*! CommonJS bailout: module.exports is used directly at 8:60-74 */
+/*! CommonJS bailout: module.exports is used directly at 9:4-18 */
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 eval("/* module decorator */ module = __webpack_require__.nmd(module);\n(function() {\n  var expandIPv6, ipaddr, ipv4Part, ipv4Regexes, ipv6Part, ipv6Regexes, matchCIDR, root, zoneIndex;\n\n  ipaddr = {};\n\n  root = this;\n\n  if (( true && module !== null) && module.exports) {\n    module.exports = ipaddr;\n  } else {\n    root['ipaddr'] = ipaddr;\n  }\n\n  matchCIDR = function(first, second, partSize, cidrBits) {\n    var part, shift;\n    if (first.length !== second.length) {\n      throw new Error(\"ipaddr: cannot match CIDR for objects with different lengths\");\n    }\n    part = 0;\n    while (cidrBits > 0) {\n      shift = partSize - cidrBits;\n      if (shift < 0) {\n        shift = 0;\n      }\n      if (first[part] >> shift !== second[part] >> shift) {\n        return false;\n      }\n      cidrBits -= partSize;\n      part += 1;\n    }\n    return true;\n  };\n\n  ipaddr.subnetMatch = function(address, rangeList, defaultName) {\n    var k, len, rangeName, rangeSubnets, subnet;\n    if (defaultName == null) {\n      defaultName = 'unicast';\n    }\n    for (rangeName in rangeList) {\n      rangeSubnets = rangeList[rangeName];\n      if (rangeSubnets[0] && !(rangeSubnets[0] instanceof Array)) {\n        rangeSubnets = [rangeSubnets];\n      }\n      for (k = 0, len = rangeSubnets.length; k < len; k++) {\n        subnet = rangeSubnets[k];\n        if (address.kind() === subnet[0].kind()) {\n          if (address.match.apply(address, subnet)) {\n            return rangeName;\n          }\n        }\n      }\n    }\n    return defaultName;\n  };\n\n  ipaddr.IPv4 = (function() {\n    function IPv4(octets) {\n      var k, len, octet;\n      if (octets.length !== 4) {\n        throw new Error(\"ipaddr: ipv4 octet count should be 4\");\n      }\n      for (k = 0, len = octets.length; k < len; k++) {\n        octet = octets[k];\n        if (!((0 <= octet && octet <= 255))) {\n          throw new Error(\"ipaddr: ipv4 octet should fit in 8 bits\");\n        }\n      }\n      this.octets = octets;\n    }\n\n    IPv4.prototype.kind = function() {\n      return 'ipv4';\n    };\n\n    IPv4.prototype.toString = function() {\n      return this.octets.join(\".\");\n    };\n\n    IPv4.prototype.toNormalizedString = function() {\n      return this.toString();\n    };\n\n    IPv4.prototype.toByteArray = function() {\n      return this.octets.slice(0);\n    };\n\n    IPv4.prototype.match = function(other, cidrRange) {\n      var ref;\n      if (cidrRange === void 0) {\n        ref = other, other = ref[0], cidrRange = ref[1];\n      }\n      if (other.kind() !== 'ipv4') {\n        throw new Error(\"ipaddr: cannot match ipv4 address with non-ipv4 one\");\n      }\n      return matchCIDR(this.octets, other.octets, 8, cidrRange);\n    };\n\n    IPv4.prototype.SpecialRanges = {\n      unspecified: [[new IPv4([0, 0, 0, 0]), 8]],\n      broadcast: [[new IPv4([255, 255, 255, 255]), 32]],\n      multicast: [[new IPv4([224, 0, 0, 0]), 4]],\n      linkLocal: [[new IPv4([169, 254, 0, 0]), 16]],\n      loopback: [[new IPv4([127, 0, 0, 0]), 8]],\n      carrierGradeNat: [[new IPv4([100, 64, 0, 0]), 10]],\n      \"private\": [[new IPv4([10, 0, 0, 0]), 8], [new IPv4([172, 16, 0, 0]), 12], [new IPv4([192, 168, 0, 0]), 16]],\n      reserved: [[new IPv4([192, 0, 0, 0]), 24], [new IPv4([192, 0, 2, 0]), 24], [new IPv4([192, 88, 99, 0]), 24], [new IPv4([198, 51, 100, 0]), 24], [new IPv4([203, 0, 113, 0]), 24], [new IPv4([240, 0, 0, 0]), 4]]\n    };\n\n    IPv4.prototype.range = function() {\n      return ipaddr.subnetMatch(this, this.SpecialRanges);\n    };\n\n    IPv4.prototype.toIPv4MappedAddress = function() {\n      return ipaddr.IPv6.parse(\"::ffff:\" + (this.toString()));\n    };\n\n    IPv4.prototype.prefixLengthFromSubnetMask = function() {\n      var cidr, i, k, octet, stop, zeros, zerotable;\n      zerotable = {\n        0: 8,\n        128: 7,\n        192: 6,\n        224: 5,\n        240: 4,\n        248: 3,\n        252: 2,\n        254: 1,\n        255: 0\n      };\n      cidr = 0;\n      stop = false;\n      for (i = k = 3; k >= 0; i = k += -1) {\n        octet = this.octets[i];\n        if (octet in zerotable) {\n          zeros = zerotable[octet];\n          if (stop && zeros !== 0) {\n            return null;\n          }\n          if (zeros !== 8) {\n            stop = true;\n          }\n          cidr += zeros;\n        } else {\n          return null;\n        }\n      }\n      return 32 - cidr;\n    };\n\n    return IPv4;\n\n  })();\n\n  ipv4Part = \"(0?\\\\d+|0x[a-f0-9]+)\";\n\n  ipv4Regexes = {\n    fourOctet: new RegExp(\"^\" + ipv4Part + \"\\\\.\" + ipv4Part + \"\\\\.\" + ipv4Part + \"\\\\.\" + ipv4Part + \"$\", 'i'),\n    longValue: new RegExp(\"^\" + ipv4Part + \"$\", 'i')\n  };\n\n  ipaddr.IPv4.parser = function(string) {\n    var match, parseIntAuto, part, shift, value;\n    parseIntAuto = function(string) {\n      if (string[0] === \"0\" && string[1] !== \"x\") {\n        return parseInt(string, 8);\n      } else {\n        return parseInt(string);\n      }\n    };\n    if (match = string.match(ipv4Regexes.fourOctet)) {\n      return (function() {\n        var k, len, ref, results;\n        ref = match.slice(1, 6);\n        results = [];\n        for (k = 0, len = ref.length; k < len; k++) {\n          part = ref[k];\n          results.push(parseIntAuto(part));\n        }\n        return results;\n      })();\n    } else if (match = string.match(ipv4Regexes.longValue)) {\n      value = parseIntAuto(match[1]);\n      if (value > 0xffffffff || value < 0) {\n        throw new Error(\"ipaddr: address outside defined range\");\n      }\n      return ((function() {\n        var k, results;\n        results = [];\n        for (shift = k = 0; k <= 24; shift = k += 8) {\n          results.push((value >> shift) & 0xff);\n        }\n        return results;\n      })()).reverse();\n    } else {\n      return null;\n    }\n  };\n\n  ipaddr.IPv6 = (function() {\n    function IPv6(parts, zoneId) {\n      var i, k, l, len, part, ref;\n      if (parts.length === 16) {\n        this.parts = [];\n        for (i = k = 0; k <= 14; i = k += 2) {\n          this.parts.push((parts[i] << 8) | parts[i + 1]);\n        }\n      } else if (parts.length === 8) {\n        this.parts = parts;\n      } else {\n        throw new Error(\"ipaddr: ipv6 part count should be 8 or 16\");\n      }\n      ref = this.parts;\n      for (l = 0, len = ref.length; l < len; l++) {\n        part = ref[l];\n        if (!((0 <= part && part <= 0xffff))) {\n          throw new Error(\"ipaddr: ipv6 part should fit in 16 bits\");\n        }\n      }\n      if (zoneId) {\n        this.zoneId = zoneId;\n      }\n    }\n\n    IPv6.prototype.kind = function() {\n      return 'ipv6';\n    };\n\n    IPv6.prototype.toString = function() {\n      return this.toNormalizedString().replace(/((^|:)(0(:|$))+)/, '::');\n    };\n\n    IPv6.prototype.toRFC5952String = function() {\n      var bestMatchIndex, bestMatchLength, match, regex, string;\n      regex = /((^|:)(0(:|$)){2,})/g;\n      string = this.toNormalizedString();\n      bestMatchIndex = 0;\n      bestMatchLength = -1;\n      while ((match = regex.exec(string))) {\n        if (match[0].length > bestMatchLength) {\n          bestMatchIndex = match.index;\n          bestMatchLength = match[0].length;\n        }\n      }\n      if (bestMatchLength < 0) {\n        return string;\n      }\n      return string.substring(0, bestMatchIndex) + '::' + string.substring(bestMatchIndex + bestMatchLength);\n    };\n\n    IPv6.prototype.toByteArray = function() {\n      var bytes, k, len, part, ref;\n      bytes = [];\n      ref = this.parts;\n      for (k = 0, len = ref.length; k < len; k++) {\n        part = ref[k];\n        bytes.push(part >> 8);\n        bytes.push(part & 0xff);\n      }\n      return bytes;\n    };\n\n    IPv6.prototype.toNormalizedString = function() {\n      var addr, part, suffix;\n      addr = ((function() {\n        var k, len, ref, results;\n        ref = this.parts;\n        results = [];\n        for (k = 0, len = ref.length; k < len; k++) {\n          part = ref[k];\n          results.push(part.toString(16));\n        }\n        return results;\n      }).call(this)).join(\":\");\n      suffix = '';\n      if (this.zoneId) {\n        suffix = '%' + this.zoneId;\n      }\n      return addr + suffix;\n    };\n\n    IPv6.prototype.toFixedLengthString = function() {\n      var addr, part, suffix;\n      addr = ((function() {\n        var k, len, ref, results;\n        ref = this.parts;\n        results = [];\n        for (k = 0, len = ref.length; k < len; k++) {\n          part = ref[k];\n          results.push(part.toString(16).padStart(4, '0'));\n        }\n        return results;\n      }).call(this)).join(\":\");\n      suffix = '';\n      if (this.zoneId) {\n        suffix = '%' + this.zoneId;\n      }\n      return addr + suffix;\n    };\n\n    IPv6.prototype.match = function(other, cidrRange) {\n      var ref;\n      if (cidrRange === void 0) {\n        ref = other, other = ref[0], cidrRange = ref[1];\n      }\n      if (other.kind() !== 'ipv6') {\n        throw new Error(\"ipaddr: cannot match ipv6 address with non-ipv6 one\");\n      }\n      return matchCIDR(this.parts, other.parts, 16, cidrRange);\n    };\n\n    IPv6.prototype.SpecialRanges = {\n      unspecified: [new IPv6([0, 0, 0, 0, 0, 0, 0, 0]), 128],\n      linkLocal: [new IPv6([0xfe80, 0, 0, 0, 0, 0, 0, 0]), 10],\n      multicast: [new IPv6([0xff00, 0, 0, 0, 0, 0, 0, 0]), 8],\n      loopback: [new IPv6([0, 0, 0, 0, 0, 0, 0, 1]), 128],\n      uniqueLocal: [new IPv6([0xfc00, 0, 0, 0, 0, 0, 0, 0]), 7],\n      ipv4Mapped: [new IPv6([0, 0, 0, 0, 0, 0xffff, 0, 0]), 96],\n      rfc6145: [new IPv6([0, 0, 0, 0, 0xffff, 0, 0, 0]), 96],\n      rfc6052: [new IPv6([0x64, 0xff9b, 0, 0, 0, 0, 0, 0]), 96],\n      '6to4': [new IPv6([0x2002, 0, 0, 0, 0, 0, 0, 0]), 16],\n      teredo: [new IPv6([0x2001, 0, 0, 0, 0, 0, 0, 0]), 32],\n      reserved: [[new IPv6([0x2001, 0xdb8, 0, 0, 0, 0, 0, 0]), 32]]\n    };\n\n    IPv6.prototype.range = function() {\n      return ipaddr.subnetMatch(this, this.SpecialRanges);\n    };\n\n    IPv6.prototype.isIPv4MappedAddress = function() {\n      return this.range() === 'ipv4Mapped';\n    };\n\n    IPv6.prototype.toIPv4Address = function() {\n      var high, low, ref;\n      if (!this.isIPv4MappedAddress()) {\n        throw new Error(\"ipaddr: trying to convert a generic ipv6 address to ipv4\");\n      }\n      ref = this.parts.slice(-2), high = ref[0], low = ref[1];\n      return new ipaddr.IPv4([high >> 8, high & 0xff, low >> 8, low & 0xff]);\n    };\n\n    IPv6.prototype.prefixLengthFromSubnetMask = function() {\n      var cidr, i, k, part, stop, zeros, zerotable;\n      zerotable = {\n        0: 16,\n        32768: 15,\n        49152: 14,\n        57344: 13,\n        61440: 12,\n        63488: 11,\n        64512: 10,\n        65024: 9,\n        65280: 8,\n        65408: 7,\n        65472: 6,\n        65504: 5,\n        65520: 4,\n        65528: 3,\n        65532: 2,\n        65534: 1,\n        65535: 0\n      };\n      cidr = 0;\n      stop = false;\n      for (i = k = 7; k >= 0; i = k += -1) {\n        part = this.parts[i];\n        if (part in zerotable) {\n          zeros = zerotable[part];\n          if (stop && zeros !== 0) {\n            return null;\n          }\n          if (zeros !== 16) {\n            stop = true;\n          }\n          cidr += zeros;\n        } else {\n          return null;\n        }\n      }\n      return 128 - cidr;\n    };\n\n    return IPv6;\n\n  })();\n\n  ipv6Part = \"(?:[0-9a-f]+::?)+\";\n\n  zoneIndex = \"%[0-9a-z]{1,}\";\n\n  ipv6Regexes = {\n    zoneIndex: new RegExp(zoneIndex, 'i'),\n    \"native\": new RegExp(\"^(::)?(\" + ipv6Part + \")?([0-9a-f]+)?(::)?(\" + zoneIndex + \")?$\", 'i'),\n    transitional: new RegExp((\"^((?:\" + ipv6Part + \")|(?:::)(?:\" + ipv6Part + \")?)\") + (ipv4Part + \"\\\\.\" + ipv4Part + \"\\\\.\" + ipv4Part + \"\\\\.\" + ipv4Part) + (\"(\" + zoneIndex + \")?$\"), 'i')\n  };\n\n  expandIPv6 = function(string, parts) {\n    var colonCount, lastColon, part, replacement, replacementCount, zoneId;\n    if (string.indexOf('::') !== string.lastIndexOf('::')) {\n      return null;\n    }\n    zoneId = (string.match(ipv6Regexes['zoneIndex']) || [])[0];\n    if (zoneId) {\n      zoneId = zoneId.substring(1);\n      string = string.replace(/%.+$/, '');\n    }\n    colonCount = 0;\n    lastColon = -1;\n    while ((lastColon = string.indexOf(':', lastColon + 1)) >= 0) {\n      colonCount++;\n    }\n    if (string.substr(0, 2) === '::') {\n      colonCount--;\n    }\n    if (string.substr(-2, 2) === '::') {\n      colonCount--;\n    }\n    if (colonCount > parts) {\n      return null;\n    }\n    replacementCount = parts - colonCount;\n    replacement = ':';\n    while (replacementCount--) {\n      replacement += '0:';\n    }\n    string = string.replace('::', replacement);\n    if (string[0] === ':') {\n      string = string.slice(1);\n    }\n    if (string[string.length - 1] === ':') {\n      string = string.slice(0, -1);\n    }\n    parts = (function() {\n      var k, len, ref, results;\n      ref = string.split(\":\");\n      results = [];\n      for (k = 0, len = ref.length; k < len; k++) {\n        part = ref[k];\n        results.push(parseInt(part, 16));\n      }\n      return results;\n    })();\n    return {\n      parts: parts,\n      zoneId: zoneId\n    };\n  };\n\n  ipaddr.IPv6.parser = function(string) {\n    var addr, k, len, match, octet, octets, zoneId;\n    if (ipv6Regexes['native'].test(string)) {\n      return expandIPv6(string, 8);\n    } else if (match = string.match(ipv6Regexes['transitional'])) {\n      zoneId = match[6] || '';\n      addr = expandIPv6(match[1].slice(0, -1) + zoneId, 6);\n      if (addr.parts) {\n        octets = [parseInt(match[2]), parseInt(match[3]), parseInt(match[4]), parseInt(match[5])];\n        for (k = 0, len = octets.length; k < len; k++) {\n          octet = octets[k];\n          if (!((0 <= octet && octet <= 255))) {\n            return null;\n          }\n        }\n        addr.parts.push(octets[0] << 8 | octets[1]);\n        addr.parts.push(octets[2] << 8 | octets[3]);\n        return {\n          parts: addr.parts,\n          zoneId: addr.zoneId\n        };\n      }\n    }\n    return null;\n  };\n\n  ipaddr.IPv4.isIPv4 = ipaddr.IPv6.isIPv6 = function(string) {\n    return this.parser(string) !== null;\n  };\n\n  ipaddr.IPv4.isValid = function(string) {\n    var e;\n    try {\n      new this(this.parser(string));\n      return true;\n    } catch (error1) {\n      e = error1;\n      return false;\n    }\n  };\n\n  ipaddr.IPv4.isValidFourPartDecimal = function(string) {\n    if (ipaddr.IPv4.isValid(string) && string.match(/^(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)){3}$/)) {\n      return true;\n    } else {\n      return false;\n    }\n  };\n\n  ipaddr.IPv6.isValid = function(string) {\n    var addr, e;\n    if (typeof string === \"string\" && string.indexOf(\":\") === -1) {\n      return false;\n    }\n    try {\n      addr = this.parser(string);\n      new this(addr.parts, addr.zoneId);\n      return true;\n    } catch (error1) {\n      e = error1;\n      return false;\n    }\n  };\n\n  ipaddr.IPv4.parse = function(string) {\n    var parts;\n    parts = this.parser(string);\n    if (parts === null) {\n      throw new Error(\"ipaddr: string is not formatted like ip address\");\n    }\n    return new this(parts);\n  };\n\n  ipaddr.IPv6.parse = function(string) {\n    var addr;\n    addr = this.parser(string);\n    if (addr.parts === null) {\n      throw new Error(\"ipaddr: string is not formatted like ip address\");\n    }\n    return new this(addr.parts, addr.zoneId);\n  };\n\n  ipaddr.IPv4.parseCIDR = function(string) {\n    var maskLength, match, parsed;\n    if (match = string.match(/^(.+)\\/(\\d+)$/)) {\n      maskLength = parseInt(match[2]);\n      if (maskLength >= 0 && maskLength <= 32) {\n        parsed = [this.parse(match[1]), maskLength];\n        Object.defineProperty(parsed, 'toString', {\n          value: function() {\n            return this.join('/');\n          }\n        });\n        return parsed;\n      }\n    }\n    throw new Error(\"ipaddr: string is not formatted like an IPv4 CIDR range\");\n  };\n\n  ipaddr.IPv4.subnetMaskFromPrefixLength = function(prefix) {\n    var filledOctetCount, j, octets;\n    prefix = parseInt(prefix);\n    if (prefix < 0 || prefix > 32) {\n      throw new Error('ipaddr: invalid IPv4 prefix length');\n    }\n    octets = [0, 0, 0, 0];\n    j = 0;\n    filledOctetCount = Math.floor(prefix / 8);\n    while (j < filledOctetCount) {\n      octets[j] = 255;\n      j++;\n    }\n    if (filledOctetCount < 4) {\n      octets[filledOctetCount] = Math.pow(2, prefix % 8) - 1 << 8 - (prefix % 8);\n    }\n    return new this(octets);\n  };\n\n  ipaddr.IPv4.broadcastAddressFromCIDR = function(string) {\n    var cidr, error, i, ipInterfaceOctets, octets, subnetMaskOctets;\n    try {\n      cidr = this.parseCIDR(string);\n      ipInterfaceOctets = cidr[0].toByteArray();\n      subnetMaskOctets = this.subnetMaskFromPrefixLength(cidr[1]).toByteArray();\n      octets = [];\n      i = 0;\n      while (i < 4) {\n        octets.push(parseInt(ipInterfaceOctets[i], 10) | parseInt(subnetMaskOctets[i], 10) ^ 255);\n        i++;\n      }\n      return new this(octets);\n    } catch (error1) {\n      error = error1;\n      throw new Error('ipaddr: the address does not have IPv4 CIDR format');\n    }\n  };\n\n  ipaddr.IPv4.networkAddressFromCIDR = function(string) {\n    var cidr, error, i, ipInterfaceOctets, octets, subnetMaskOctets;\n    try {\n      cidr = this.parseCIDR(string);\n      ipInterfaceOctets = cidr[0].toByteArray();\n      subnetMaskOctets = this.subnetMaskFromPrefixLength(cidr[1]).toByteArray();\n      octets = [];\n      i = 0;\n      while (i < 4) {\n        octets.push(parseInt(ipInterfaceOctets[i], 10) & parseInt(subnetMaskOctets[i], 10));\n        i++;\n      }\n      return new this(octets);\n    } catch (error1) {\n      error = error1;\n      throw new Error('ipaddr: the address does not have IPv4 CIDR format');\n    }\n  };\n\n  ipaddr.IPv6.parseCIDR = function(string) {\n    var maskLength, match, parsed;\n    if (match = string.match(/^(.+)\\/(\\d+)$/)) {\n      maskLength = parseInt(match[2]);\n      if (maskLength >= 0 && maskLength <= 128) {\n        parsed = [this.parse(match[1]), maskLength];\n        Object.defineProperty(parsed, 'toString', {\n          value: function() {\n            return this.join('/');\n          }\n        });\n        return parsed;\n      }\n    }\n    throw new Error(\"ipaddr: string is not formatted like an IPv6 CIDR range\");\n  };\n\n  ipaddr.isValid = function(string) {\n    return ipaddr.IPv6.isValid(string) || ipaddr.IPv4.isValid(string);\n  };\n\n  ipaddr.parse = function(string) {\n    if (ipaddr.IPv6.isValid(string)) {\n      return ipaddr.IPv6.parse(string);\n    } else if (ipaddr.IPv4.isValid(string)) {\n      return ipaddr.IPv4.parse(string);\n    } else {\n      throw new Error(\"ipaddr: the address has neither IPv6 nor IPv4 format\");\n    }\n  };\n\n  ipaddr.parseCIDR = function(string) {\n    var e;\n    try {\n      return ipaddr.IPv6.parseCIDR(string);\n    } catch (error1) {\n      e = error1;\n      try {\n        return ipaddr.IPv4.parseCIDR(string);\n      } catch (error1) {\n        e = error1;\n        throw new Error(\"ipaddr: the address has neither IPv6 nor IPv4 CIDR format\");\n      }\n    }\n  };\n\n  ipaddr.fromByteArray = function(bytes) {\n    var length;\n    length = bytes.length;\n    if (length === 4) {\n      return new ipaddr.IPv4(bytes);\n    } else if (length === 16) {\n      return new ipaddr.IPv6(bytes);\n    } else {\n      throw new Error(\"ipaddr: the binary input is neither an IPv6 nor IPv4 address\");\n    }\n  };\n\n  ipaddr.process = function(string) {\n    var addr;\n    addr = this.parse(string);\n    if (addr.kind() === 'ipv6' && addr.isIPv4MappedAddress()) {\n      return addr.toIPv4Address();\n    } else {\n      return addr;\n    }\n  };\n\n}).call(this);\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/ipaddr.js/lib/ipaddr.js?");
@@ -9315,6 +9361,7 @@ eval("/*!\n * media-typer\n * Copyright(c) 2014 Douglas Christopher Wilson\n * M
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -9328,6 +9375,7 @@ eval("/*!\n * merge-descriptors\n * Copyright(c) 2014 Jonathan Ong\n * Copyright
   \***************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -29982,6 +30030,8 @@ eval("/*!\n * mime-db\n * Copyright(c) 2014 Jonathan Ong\n * MIT Licensed\n */\n
 /*! export types [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
 /*! runtime requirements: __webpack_require__, __webpack_exports__ */
+/*! CommonJS bailout: exports.lookup(...) prevents optimization as exports is passed as call context at 84:6-20 */
+/*! CommonJS bailout: exports.charset(...) prevents optimization as exports is passed as call context at 93:18-33 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -29995,6 +30045,7 @@ eval("/*!\n * mime-types\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 201
   \***********************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 108:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("var path = __webpack_require__(/*! path */ \"path\");\nvar fs = __webpack_require__(/*! fs */ \"fs\");\n\nfunction Mime() {\n  // Map of extension -> mime type\n  this.types = Object.create(null);\n\n  // Map of mime type -> extension\n  this.extensions = Object.create(null);\n}\n\n/**\n * Define mimetype -> extension mappings.  Each key is a mime-type that maps\n * to an array of extensions associated with the type.  The first extension is\n * used as the default extension for the type.\n *\n * e.g. mime.define({'audio/ogg', ['oga', 'ogg', 'spx']});\n *\n * @param map (Object) type definitions\n */\nMime.prototype.define = function (map) {\n  for (var type in map) {\n    var exts = map[type];\n    for (var i = 0; i < exts.length; i++) {\n      if (process.env.DEBUG_MIME && this.types[exts[i]]) {\n        console.warn((this._loading || \"define()\").replace(/.*\\//, ''), 'changes \"' + exts[i] + '\" extension type from ' +\n          this.types[exts[i]] + ' to ' + type);\n      }\n\n      this.types[exts[i]] = type;\n    }\n\n    // Default extension is the first one we encounter\n    if (!this.extensions[type]) {\n      this.extensions[type] = exts[0];\n    }\n  }\n};\n\n/**\n * Load an Apache2-style \".types\" file\n *\n * This may be called multiple times (it's expected).  Where files declare\n * overlapping types/extensions, the last file wins.\n *\n * @param file (String) path of file to load.\n */\nMime.prototype.load = function(file) {\n  this._loading = file;\n  // Read file and split into lines\n  var map = {},\n      content = fs.readFileSync(file, 'ascii'),\n      lines = content.split(/[\\r\\n]+/);\n\n  lines.forEach(function(line) {\n    // Clean up whitespace/comments, and split into fields\n    var fields = line.replace(/\\s*#.*|^\\s*|\\s*$/g, '').split(/\\s+/);\n    map[fields.shift()] = fields;\n  });\n\n  this.define(map);\n\n  this._loading = null;\n};\n\n/**\n * Lookup a mime type based on extension\n */\nMime.prototype.lookup = function(path, fallback) {\n  var ext = path.replace(/^.*[\\.\\/\\\\]/, '').toLowerCase();\n\n  return this.types[ext] || fallback || this.default_type;\n};\n\n/**\n * Return file extension associated with a mime type\n */\nMime.prototype.extension = function(mimeType) {\n  var type = mimeType.match(/^\\s*([^;\\s]*)(?:;|\\s|$)/)[1].toLowerCase();\n  return this.extensions[type];\n};\n\n// Default instance\nvar mime = new Mime();\n\n// Define built-in types\nmime.define(__webpack_require__(/*! ./types.json */ \"./node_modules/mime/types.json\"));\n\n// Default type\nmime.default_type = mime.lookup('bin');\n\n//\n// Additional API specific to the default instance\n//\n\nmime.Mime = Mime;\n\n/**\n * Lookup a charset based on mime type.\n */\nmime.charsets = {\n  lookup: function(mimeType, fallback) {\n    // Assume text types are utf8\n    return (/^text\\/|^application\\/(javascript|json)/).test(mimeType) ? 'UTF-8' : fallback;\n  }\n};\n\nmodule.exports = mime;\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/mime/mime.js?");
@@ -32778,6 +32829,7 @@ eval("module.exports = JSON.parse(\"{\\\"application/andrew-inset\\\":[\\\"ez\\\
   \**********************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 25:0-14 */
 /***/ ((module) => {
 
 eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\nvar d = h * 24;\nvar y = d * 365.25;\n\n/**\n * Parse or format the given `val`.\n *\n * Options:\n *\n *  - `long` verbose formatting [false]\n *\n * @param {String|Number} val\n * @param {Object} [options]\n * @throws {Error} throw an error if val is not a non-empty string or a number\n * @return {String|Number}\n * @api public\n */\n\nmodule.exports = function(val, options) {\n  options = options || {};\n  var type = typeof val;\n  if (type === 'string' && val.length > 0) {\n    return parse(val);\n  } else if (type === 'number' && isNaN(val) === false) {\n    return options.long ? fmtLong(val) : fmtShort(val);\n  }\n  throw new Error(\n    'val is not a non-empty string or a valid number. val=' +\n      JSON.stringify(val)\n  );\n};\n\n/**\n * Parse the given `str` and return milliseconds.\n *\n * @param {String} str\n * @return {Number}\n * @api private\n */\n\nfunction parse(str) {\n  str = String(str);\n  if (str.length > 100) {\n    return;\n  }\n  var match = /^((?:\\d+)?\\.?\\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(\n    str\n  );\n  if (!match) {\n    return;\n  }\n  var n = parseFloat(match[1]);\n  var type = (match[2] || 'ms').toLowerCase();\n  switch (type) {\n    case 'years':\n    case 'year':\n    case 'yrs':\n    case 'yr':\n    case 'y':\n      return n * y;\n    case 'days':\n    case 'day':\n    case 'd':\n      return n * d;\n    case 'hours':\n    case 'hour':\n    case 'hrs':\n    case 'hr':\n    case 'h':\n      return n * h;\n    case 'minutes':\n    case 'minute':\n    case 'mins':\n    case 'min':\n    case 'm':\n      return n * m;\n    case 'seconds':\n    case 'second':\n    case 'secs':\n    case 'sec':\n    case 's':\n      return n * s;\n    case 'milliseconds':\n    case 'millisecond':\n    case 'msecs':\n    case 'msec':\n    case 'ms':\n      return n;\n    default:\n      return undefined;\n  }\n}\n\n/**\n * Short format for `ms`.\n *\n * @param {Number} ms\n * @return {String}\n * @api private\n */\n\nfunction fmtShort(ms) {\n  if (ms >= d) {\n    return Math.round(ms / d) + 'd';\n  }\n  if (ms >= h) {\n    return Math.round(ms / h) + 'h';\n  }\n  if (ms >= m) {\n    return Math.round(ms / m) + 'm';\n  }\n  if (ms >= s) {\n    return Math.round(ms / s) + 's';\n  }\n  return ms + 'ms';\n}\n\n/**\n * Long format for `ms`.\n *\n * @param {Number} ms\n * @return {String}\n * @api private\n */\n\nfunction fmtLong(ms) {\n  return plural(ms, d, 'day') ||\n    plural(ms, h, 'hour') ||\n    plural(ms, m, 'minute') ||\n    plural(ms, s, 'second') ||\n    ms + ' ms';\n}\n\n/**\n * Pluralization helper.\n */\n\nfunction plural(ms, n, name) {\n  if (ms < n) {\n    return;\n  }\n  if (ms < n * 1.5) {\n    return Math.floor(ms / n) + ' ' + name;\n  }\n  return Math.ceil(ms / n) + ' ' + name + 's';\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/ms/index.js?");
@@ -32790,6 +32842,7 @@ eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\n
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32803,6 +32856,7 @@ eval("/*!\n * negotiator\n * Copyright(c) 2012 Federico Romero\n * Copyright(c) 
   \************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32816,6 +32870,7 @@ eval("/**\n * negotiator\n * Copyright(c) 2012 Isaac Z. Schlueter\n * Copyright(
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32829,6 +32884,7 @@ eval("/**\n * negotiator\n * Copyright(c) 2012 Isaac Z. Schlueter\n * Copyright(
   \*************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32842,6 +32898,7 @@ eval("/**\n * negotiator\n * Copyright(c) 2012 Isaac Z. Schlueter\n * Copyright(
   \**************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32855,6 +32912,7 @@ eval("/**\n * negotiator\n * Copyright(c) 2012 Isaac Z. Schlueter\n * Copyright(
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32868,6 +32926,7 @@ eval("/*!\n * on-finished\n * Copyright(c) 2013 Jonathan Ong\n * Copyright(c) 20
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 24:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32881,6 +32940,7 @@ eval("/*!\n * parseurl\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 2014-
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
 /***/ ((module) => {
 
 eval("/**\n * Expose `pathtoRegexp`.\n */\n\nmodule.exports = pathtoRegexp;\n\n/**\n * Match matching groups in a regular expression.\n */\nvar MATCHING_GROUP_REGEXP = /\\((?!\\?)/g;\n\n/**\n * Normalize the given path string,\n * returning a regular expression.\n *\n * An empty array should be passed,\n * which will contain the placeholder\n * key names. For example \"/user/:id\" will\n * then contain [\"id\"].\n *\n * @param  {String|RegExp|Array} path\n * @param  {Array} keys\n * @param  {Object} options\n * @return {RegExp}\n * @api private\n */\n\nfunction pathtoRegexp(path, keys, options) {\n  options = options || {};\n  keys = keys || [];\n  var strict = options.strict;\n  var end = options.end !== false;\n  var flags = options.sensitive ? '' : 'i';\n  var extraOffset = 0;\n  var keysOffset = keys.length;\n  var i = 0;\n  var name = 0;\n  var m;\n\n  if (path instanceof RegExp) {\n    while (m = MATCHING_GROUP_REGEXP.exec(path.source)) {\n      keys.push({\n        name: name++,\n        optional: false,\n        offset: m.index\n      });\n    }\n\n    return path;\n  }\n\n  if (Array.isArray(path)) {\n    // Map array parts into regexps and return their source. We also pass\n    // the same keys and options instance into every generation to get\n    // consistent matching groups before we join the sources together.\n    path = path.map(function (value) {\n      return pathtoRegexp(value, keys, options).source;\n    });\n\n    return new RegExp('(?:' + path.join('|') + ')', flags);\n  }\n\n  path = ('^' + path + (strict ? '' : path[path.length - 1] === '/' ? '?' : '/?'))\n    .replace(/\\/\\(/g, '/(?:')\n    .replace(/([\\/\\.])/g, '\\\\$1')\n    .replace(/(\\\\\\/)?(\\\\\\.)?:(\\w+)(\\(.*?\\))?(\\*)?(\\?)?/g, function (match, slash, format, key, capture, star, optional, offset) {\n      slash = slash || '';\n      format = format || '';\n      capture = capture || '([^\\\\/' + format + ']+?)';\n      optional = optional || '';\n\n      keys.push({\n        name: key,\n        optional: !!optional,\n        offset: offset + extraOffset\n      });\n\n      var result = ''\n        + (optional ? '' : slash)\n        + '(?:'\n        + format + (optional ? slash : '') + capture\n        + (star ? '((?:[\\\\/' + format + '].+?)?)' : '')\n        + ')'\n        + optional;\n\n      extraOffset += result.length - match.length;\n\n      return result;\n    })\n    .replace(/\\*/g, function (star, index) {\n      var len = keys.length\n\n      while (len-- > keysOffset && keys[len].offset > index) {\n        keys[len].offset += 3; // Replacement length minus asterisk length.\n      }\n\n      return '(.*)';\n    });\n\n  // This is a workaround for handling unnamed matching groups.\n  while (m = MATCHING_GROUP_REGEXP.exec(path)) {\n    var escapeCount = 0;\n    var index = m.index;\n\n    while (path.charAt(--index) === '\\\\') {\n      escapeCount++;\n    }\n\n    // It's possible to escape the bracket.\n    if (escapeCount % 2 === 1) {\n      continue;\n    }\n\n    if (keysOffset + i === keys.length || keys[keysOffset + i].offset > m.index) {\n      keys.splice(keysOffset + i, 0, {\n        name: name++, // Unnamed matching groups must be consistently linear.\n        optional: false,\n        offset: m.index\n      });\n    }\n\n    i++;\n  }\n\n  // If the path is non-ending, match until the end or a slash.\n  path += (end ? '$' : (path[path.length - 1] === '/' ? '' : '(?=\\\\/|$)'));\n\n  return new RegExp(path, flags);\n};\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/path-to-regexp/index.js?");
@@ -32893,6 +32953,7 @@ eval("/**\n * Expose `pathtoRegexp`.\n */\n\nmodule.exports = pathtoRegexp;\n\n/
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32906,6 +32967,7 @@ eval("/*!\n * proxy-addr\n * Copyright(c) 2014-2016 Douglas Christopher Wilson\n
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32919,6 +32981,7 @@ eval("\n\nvar replace = String.prototype.replace;\nvar percentTwenties = /%20/g;
   \**************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32932,6 +32995,7 @@ eval("\n\nvar stringify = __webpack_require__(/*! ./stringify */ \"./node_module
   \**************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 222:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32945,6 +33009,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/qs/lib
   \******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 192:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32958,6 +33023,7 @@ eval("\n\nvar utils = __webpack_require__(/*! ./utils */ \"./node_modules/qs/lib
   \**************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 220:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32971,6 +33037,7 @@ eval("\n\nvar has = Object.prototype.hasOwnProperty;\nvar isArray = Array.isArra
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -32984,6 +33051,7 @@ eval("/*!\n * range-parser\n * Copyright(c) 2012-2014 TJ Holowaychuk\n * Copyrig
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 25:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -32997,6 +33065,8 @@ eval("/*!\n * raw-body\n * Copyright(c) 2013-2014 Jonathan Ong\n * Copyright(c) 
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_exports__, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 12:2-16 */
+/*! CommonJS bailout: exports is used directly at 15:20-27 */
 /***/ ((module, exports, __webpack_require__) => {
 
 eval("/* eslint-disable node/no-deprecated-api */\nvar buffer = __webpack_require__(/*! buffer */ \"buffer\")\nvar Buffer = buffer.Buffer\n\n// alternative to using Object.keys for old browsers\nfunction copyProps (src, dst) {\n  for (var key in src) {\n    dst[key] = src[key]\n  }\n}\nif (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) {\n  module.exports = buffer\n} else {\n  // Copy properties from require('buffer')\n  copyProps(buffer, exports)\n  exports.Buffer = SafeBuffer\n}\n\nfunction SafeBuffer (arg, encodingOrOffset, length) {\n  return Buffer(arg, encodingOrOffset, length)\n}\n\n// Copy static methods from Buffer\ncopyProps(Buffer, SafeBuffer)\n\nSafeBuffer.from = function (arg, encodingOrOffset, length) {\n  if (typeof arg === 'number') {\n    throw new TypeError('Argument must not be a number')\n  }\n  return Buffer(arg, encodingOrOffset, length)\n}\n\nSafeBuffer.alloc = function (size, fill, encoding) {\n  if (typeof size !== 'number') {\n    throw new TypeError('Argument must be a number')\n  }\n  var buf = Buffer(size)\n  if (fill !== undefined) {\n    if (typeof encoding === 'string') {\n      buf.fill(fill, encoding)\n    } else {\n      buf.fill(fill)\n    }\n  } else {\n    buf.fill(0)\n  }\n  return buf\n}\n\nSafeBuffer.allocUnsafe = function (size) {\n  if (typeof size !== 'number') {\n    throw new TypeError('Argument must be a number')\n  }\n  return Buffer(size)\n}\n\nSafeBuffer.allocUnsafeSlow = function (size) {\n  if (typeof size !== 'number') {\n    throw new TypeError('Argument must be a number')\n  }\n  return buffer.SlowBuffer(size)\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/safe-buffer/index.js?");
@@ -33009,6 +33079,7 @@ eval("/* eslint-disable node/no-deprecated-api */\nvar buffer = __webpack_requir
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 77:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -33022,6 +33093,7 @@ eval("/* eslint-disable node/no-deprecated-api */\n\n\n\nvar buffer = __webpack_
   \************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 70:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -33035,6 +33107,7 @@ eval("/*!\n * send\n * Copyright(c) 2012 TJ Holowaychuk\n * Copyright(c) 2014-20
   \****************************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 26:0-14 */
 /***/ ((module) => {
 
 eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\nvar d = h * 24;\nvar w = d * 7;\nvar y = d * 365.25;\n\n/**\n * Parse or format the given `val`.\n *\n * Options:\n *\n *  - `long` verbose formatting [false]\n *\n * @param {String|Number} val\n * @param {Object} [options]\n * @throws {Error} throw an error if val is not a non-empty string or a number\n * @return {String|Number}\n * @api public\n */\n\nmodule.exports = function(val, options) {\n  options = options || {};\n  var type = typeof val;\n  if (type === 'string' && val.length > 0) {\n    return parse(val);\n  } else if (type === 'number' && isNaN(val) === false) {\n    return options.long ? fmtLong(val) : fmtShort(val);\n  }\n  throw new Error(\n    'val is not a non-empty string or a valid number. val=' +\n      JSON.stringify(val)\n  );\n};\n\n/**\n * Parse the given `str` and return milliseconds.\n *\n * @param {String} str\n * @return {Number}\n * @api private\n */\n\nfunction parse(str) {\n  str = String(str);\n  if (str.length > 100) {\n    return;\n  }\n  var match = /^((?:\\d+)?\\-?\\d?\\.?\\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(\n    str\n  );\n  if (!match) {\n    return;\n  }\n  var n = parseFloat(match[1]);\n  var type = (match[2] || 'ms').toLowerCase();\n  switch (type) {\n    case 'years':\n    case 'year':\n    case 'yrs':\n    case 'yr':\n    case 'y':\n      return n * y;\n    case 'weeks':\n    case 'week':\n    case 'w':\n      return n * w;\n    case 'days':\n    case 'day':\n    case 'd':\n      return n * d;\n    case 'hours':\n    case 'hour':\n    case 'hrs':\n    case 'hr':\n    case 'h':\n      return n * h;\n    case 'minutes':\n    case 'minute':\n    case 'mins':\n    case 'min':\n    case 'm':\n      return n * m;\n    case 'seconds':\n    case 'second':\n    case 'secs':\n    case 'sec':\n    case 's':\n      return n * s;\n    case 'milliseconds':\n    case 'millisecond':\n    case 'msecs':\n    case 'msec':\n    case 'ms':\n      return n;\n    default:\n      return undefined;\n  }\n}\n\n/**\n * Short format for `ms`.\n *\n * @param {Number} ms\n * @return {String}\n * @api private\n */\n\nfunction fmtShort(ms) {\n  var msAbs = Math.abs(ms);\n  if (msAbs >= d) {\n    return Math.round(ms / d) + 'd';\n  }\n  if (msAbs >= h) {\n    return Math.round(ms / h) + 'h';\n  }\n  if (msAbs >= m) {\n    return Math.round(ms / m) + 'm';\n  }\n  if (msAbs >= s) {\n    return Math.round(ms / s) + 's';\n  }\n  return ms + 'ms';\n}\n\n/**\n * Long format for `ms`.\n *\n * @param {Number} ms\n * @return {String}\n * @api private\n */\n\nfunction fmtLong(ms) {\n  var msAbs = Math.abs(ms);\n  if (msAbs >= d) {\n    return plural(ms, msAbs, d, 'day');\n  }\n  if (msAbs >= h) {\n    return plural(ms, msAbs, h, 'hour');\n  }\n  if (msAbs >= m) {\n    return plural(ms, msAbs, m, 'minute');\n  }\n  if (msAbs >= s) {\n    return plural(ms, msAbs, s, 'second');\n  }\n  return ms + ' ms';\n}\n\n/**\n * Pluralization helper.\n */\n\nfunction plural(ms, msAbs, n, name) {\n  var isPlural = msAbs >= n * 1.5;\n  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/send/node_modules/ms/index.js?");
@@ -33047,6 +33120,7 @@ eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\n
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
+/*! CommonJS bailout: module.exports is used directly at 28:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -33060,6 +33134,7 @@ eval("/*!\n * serve-static\n * Copyright(c) 2010 Sencha Inc.\n * Copyright(c) 20
   \**********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -33151,6 +33226,7 @@ eval("module.exports = JSON.parse(\"{\\\"100\\\":\\\"Continue\\\",\\\"101\\\":\\
   \****************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -33164,6 +33240,7 @@ eval("/*!\n * statuses\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 2016 
   \********************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
 /***/ ((module) => {
 
 eval("/*!\n * toidentifier\n * Copyright(c) 2016 Douglas Christopher Wilson\n * MIT Licensed\n */\n\n/**\n * Module exports.\n * @public\n */\n\nmodule.exports = toIdentifier\n\n/**\n * Trasform the given string into a JavaScript identifier\n *\n * @param {string} str\n * @returns {string}\n * @public\n */\n\nfunction toIdentifier (str) {\n  return str\n    .split(' ')\n    .map(function (token) {\n      return token.slice(0, 1).toUpperCase() + token.slice(1)\n    })\n    .join('')\n    .replace(/[^ _0-9a-z]/gi, '')\n}\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/toidentifier/index.js?");
@@ -33183,7 +33260,21 @@ eval("/*!\n * toidentifier\n * Copyright(c) 2016 Douglas Christopher Wilson\n * 
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\r\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\r\n}) : function(o, v) {\r\n    o[\"default\"] = v;\r\n});\r\nvar __importStar = (this && this.__importStar) || function (mod) {\r\n    if (mod && mod.__esModule) return mod;\r\n    var result = {};\r\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\r\n    __setModuleDefault(result, mod);\r\n    return result;\r\n};\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nvar path_1 = __importDefault(__webpack_require__(/*! path */ \"path\"));\r\nvar ejs = __importStar(__webpack_require__(/*! ejs */ \"./node_modules/ejs/lib/ejs.js\"));\r\nvar express_1 = __importDefault(__webpack_require__(/*! express */ \"./node_modules/express/index.js\"));\r\nvar app = express_1.default();\r\napp.use(express_1.default.static(path_1.default.join(__dirname, 'public')));\r\napp.set('view engine', 'ejs');\r\napp.set('views', path_1.default.join(__dirname, 'views'));\r\napp.engine('.ejs', ejs.renderFile);\r\napp.get('/', function (req, res) {\r\n    res.render('landing');\r\n});\r\napp.listen(3000, function () {\r\n    console.log('[Server] Listening on port 3000');\r\n});\r\n\n\n//# sourceURL=webpack://ts-express-demo/./src/index.ts?");
+eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\r\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\r\n}) : function(o, v) {\r\n    o[\"default\"] = v;\r\n});\r\nvar __importStar = (this && this.__importStar) || function (mod) {\r\n    if (mod && mod.__esModule) return mod;\r\n    var result = {};\r\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\r\n    __setModuleDefault(result, mod);\r\n    return result;\r\n};\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nvar path_1 = __importDefault(__webpack_require__(/*! path */ \"path\"));\r\nvar ejs = __importStar(__webpack_require__(/*! ejs */ \"./node_modules/ejs/lib/ejs.js\"));\r\nvar express_1 = __importDefault(__webpack_require__(/*! express */ \"./node_modules/express/index.js\"));\r\nvar rootRoutes_1 = __importDefault(__webpack_require__(/*! ./routes/rootRoutes */ \"./src/routes/rootRoutes.ts\"));\r\nvar app = express_1.default();\r\napp.use('/public', express_1.default.static(path_1.default.join(__dirname, 'public')));\r\napp.set('view engine', 'ejs');\r\napp.set('views', path_1.default.join(__dirname, 'views'));\r\napp.engine('.ejs', ejs.renderFile);\r\napp.use('/', rootRoutes_1.default);\r\napp.listen(3000, function () {\r\n    console.log('[Server] Listening on port 3000');\r\n});\r\n\n\n//# sourceURL=webpack://ts-express-demo/./src/index.ts?");
+
+/***/ }),
+
+/***/ "./src/routes/rootRoutes.ts":
+/*!**********************************!*\
+  !*** ./src/routes/rootRoutes.ts ***!
+  \**********************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements: top-level-this-exports, __webpack_exports__, __webpack_require__ */
+/*! CommonJS bailout: this is used directly at 2:23-27 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nvar express_1 = __importDefault(__webpack_require__(/*! express */ \"./node_modules/express/index.js\"));\r\nvar router = express_1.default();\r\nrouter.get('/', function (req, res) {\r\n    res.render('landing');\r\n});\r\nexports.default = router;\r\n\n\n//# sourceURL=webpack://ts-express-demo/./src/routes/rootRoutes.ts?");
 
 /***/ }),
 
@@ -33193,6 +33284,7 @@ eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create
   \***************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module, __webpack_require__ */
+/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -33206,6 +33298,7 @@ eval("/*!\n * type-is\n * Copyright(c) 2014 Jonathan Ong\n * Copyright(c) 2014-2
   \**************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
 /***/ ((module) => {
 
 "use strict";
@@ -33219,6 +33312,8 @@ eval("/*!\n * unpipe\n * Copyright(c) 2015 Douglas Christopher Wilson\n * MIT Li
   \*******************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_exports__, module */
+/*! CommonJS bailout: module.exports is used directly at 16:10-24 */
+/*! CommonJS bailout: exports is used directly at 16:0-7 */
 /***/ ((module, exports) => {
 
 eval("/**\n * Merge object b with object a.\n *\n *     var a = { foo: 'bar' }\n *       , b = { bar: 'baz' };\n *\n *     merge(a, b);\n *     // => { foo: 'bar', bar: 'baz' }\n *\n * @param {Object} a\n * @param {Object} b\n * @return {Object}\n * @api public\n */\n\nexports = module.exports = function(a, b){\n  if (a && b) {\n    for (var key in b) {\n      a[key] = b[key];\n    }\n  }\n  return a;\n};\n\n\n//# sourceURL=webpack://ts-express-demo/./node_modules/utils-merge/index.js?");
@@ -33231,6 +33326,7 @@ eval("/**\n * Merge object b with object a.\n *\n *     var a = { foo: 'bar' }\n
   \************************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
 /***/ ((module) => {
 
 "use strict";
